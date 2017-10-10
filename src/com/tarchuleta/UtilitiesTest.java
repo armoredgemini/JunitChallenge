@@ -31,6 +31,13 @@ public class UtilitiesTest {
     }
 
     @Test
+    public void testRemovePairs2() throws Exception {
+        //fail("This test has not been implemented");
+        String string = xcel.removePairs("ABCCABDEEF");
+        assertEquals("ABCABDEF", string);
+    }
+
+    @Test
     public void testConverter() throws Exception {
         fail("This test has not been implemented");
 

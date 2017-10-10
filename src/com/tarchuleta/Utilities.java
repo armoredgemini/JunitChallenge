@@ -38,13 +38,13 @@ public class Utilities {
         for(int i=0; i < string.length-1; i++) {
             if( string[i] != string[i+1]) {
                 sb.append(string[i]);
-                System.out.println(sb.toString());
+                //System.out.println(sb.toString());
             }
         }
 
-        if(string[string.length] != string[string.length-1]) {
-            sb.append(string[string.length]);
-        }
+    //    if(string[string.length-1] != string[string.length-2]) {
+           sb.append(string[string.length-1]);
+        //  }
 
         return sb.toString();
     }
