@@ -28,7 +28,9 @@ public class Utilities {
     // removing one occurence of the character
     // ABBCDEEF -> APCDEF
     public String removePairs(String source) {
-        if (source.length() < 2) {
+
+
+        if (source == null || source.length() < 2) {
             return source;
         }
 
@@ -55,6 +57,7 @@ public class Utilities {
     }
 
     public String nullIfOddLength(String source) {
+        System.out.println(source.length());
         if(source.length() % 2 == 0) {
            return source;
         }

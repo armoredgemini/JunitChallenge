@@ -1,7 +1,10 @@
 package com.tarchuleta;
 
+import com.sun.xml.internal.fastinfoset.util.CharArray;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.CharArrayReader;
 
 import static org.junit.Assert.*;
 
@@ -19,8 +22,9 @@ public class UtilitiesTest {
 
     @Test
     public void testEveryNthChar() throws Exception {
-        fail("This test has not been implemented");
-
+        //fail("This test has not been implemented");
+        assertArrayEquals("el".toCharArray(), xcel.everyNthChar("hello".toCharArray(), 2));
+        assertArrayEquals("test".toCharArray(), xcel.everyNthChar("test".toCharArray(), 8));
     }
 
     @Test
@@ -28,13 +32,14 @@ public class UtilitiesTest {
         //fail("This test has not been implemented");
         String string = xcel.removePairs("AABCDDEFF");
         assertEquals("ABCDEF", string);
-    }
-
-    @Test
-    public void testRemovePairs2() throws Exception {
-        //fail("This test has not been implemented");
-        String string = xcel.removePairs("ABCCABDEEF");
-        assertEquals("ABCABDEF", string);
+        assertEquals("ABCABDEF", xcel.removePairs("ABBCAABBBDEEFF"));
+        assertEquals("A", xcel.removePairs("AA"));
+        assertEquals("A", xcel.removePairs("A"));
+        assertEquals("ABC32D", xcel.removePairs("AABCC32D"));
+        assertEquals("ABCDEF", xcel.removePairs("ABBBCDDEFF"));
+        assertEquals("123456", xcel.removePairs("1223334566"));
+        assertEquals("123@4!56", xcel.removePairs("122333@@4!!!!566"));
+        assertNull("Message if null is not returned", xcel.removePairs(null));
     }
 
     @Test
@@ -45,7 +50,11 @@ public class UtilitiesTest {
 
     @Test
     public void testNullIfOddLength() throws Exception {
-        fail("This test has not been implemented");
+        // fail("This test has not been implemented");
+        assertEquals("this is even", xcel.nullIfOddLength("this is even"));
+        assertNull("Message if this is not null", xcel.nullIfOddLength("this is odd"));
 
     }
+
+
 }
