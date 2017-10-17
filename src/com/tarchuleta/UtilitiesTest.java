@@ -44,8 +44,16 @@ public class UtilitiesTest {
 
     @Test
     public void testConverter() throws Exception {
-        fail("This test has not been implemented");
+        //fail("This test has not been implemented");
 
+        assertEquals(300, xcel.converter(10, 5));
+    }
+
+
+    @Test(expected = ArithmeticException.class)
+    public void testConverterMath() throws Exception {
+
+        assertEquals(300, xcel.converter(10, 0));
     }
 
     @Test
